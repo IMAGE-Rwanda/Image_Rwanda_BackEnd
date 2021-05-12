@@ -1,0 +1,50 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0.",
+    "title": "IMAGE RWANDA",
+    "description": "IMAGE RWANDA is Rwanda's Leading Imagery Stock!",
+    "license": {
+      "name": "IMAGE RWANDA",
+      "url": "https://opensource.org/license/MIT"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Image Rwanda",
+      "description": "Documentation of The IMAGE RWANDA API"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+      "/": {
+        "get": {
+            "tags": ["Default"],
+            "summary": "Default message on server",
+            "operationId": "",
+            "requestBody": {
+            "description": "default router should return message",
+            "content": {
+                "application/json": {
+                "schema": {}
+                },
+                "application/xml": {
+                "schema": {}
+                }
+            },
+            "required": false
+            },
+            "responses": {
+            "200": {
+                "description": "Message of successful request",
+                "content": {}
+            }
+            },
+            "x-codegen-request-body-name": "body"
+        }
+    }
+  }
+}
