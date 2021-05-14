@@ -1,7 +1,8 @@
 import firebase from 'firebase';
 
-try{
-    var firebaseConfig = {
+try {
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
         apiKey: "AIzaSyDWvNVJSgIwCuqeNIebCcf3KcZRPIxMESM",
         authDomain: "image-rwanda-platform.firebaseapp.com",
         projectId: "image-rwanda-platform",
@@ -9,12 +10,10 @@ try{
         messagingSenderId: "715065686737",
         appId: "1:715065686737:web:ed6d9ac1b01385c13ea3f0",
         measurementId: "G-NKKPT1JVYM"
-      };
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-}  catch (error) {
-    console.log({error: "Failed To Connect To Database!"})
-
+    };
+    firebase.initializeApp(firebaseConfig);
+} catch (error) {
+    console.log(error,{ error: "Failed To Connect To Database!" })
 }
 
 const firestore = firebase.firestore();
