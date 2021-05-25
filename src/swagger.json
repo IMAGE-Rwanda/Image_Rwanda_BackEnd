@@ -1,0 +1,360 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0.",
+    "title": "IMAGE RWANDA",
+    "description": "IMAGE RWANDA is Rwanda's Leading Imagery Stock!",
+    "license": {
+      "name": "IMAGE RWANDA",
+      "url": "https://opensource.org/license/MIT"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Image Rwanda",
+      "description": "Documentation of The IMAGE RWANDA API"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Default"
+        ],
+        "summary": "Default message on server",
+        "operationId": "",
+        "requestBody": {
+          "description": "default router should return message",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Login API which helps the users to authenticate to the website",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "required": true,
+            "description": "Registered user email",
+            "schema": {
+              "example": {
+                "email": "imagerwanda@domain.com"
+              }
+            }
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "description": "Registered user password",
+            "schema": {
+              "example": {
+                "password": "password"
+              }
+            }
+          }
+        ],
+        "operationId": "",
+        "requestBody": {
+          "description": "This Login API will return the authentication token  which contains the user information",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          },
+          "404": {
+            "description": "Message of not found",
+            "content": {}
+          },
+          "400": {
+            "description": "Message of Bad request",
+            "content": {}
+          },
+          "500": {
+            "description": "Message of Server Error  request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/signup": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Signup API which helps the users to create account to the website",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "body",
+            "required": true,
+            "description": "username of the user",
+            "schema": {
+              "example": {
+                "username": "imagerwanda"
+              }
+            }
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "required": true,
+            "description": "Valid email of the user",
+            "schema": {
+              "example": {
+                "email": "imagerwanda@domain.com"
+              }
+            }
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "description": "Password that will be used in login",
+            "schema": {
+              "example": {
+                "password": "password",
+                "cpassword": "password"
+              }
+            }
+          }
+        ],
+        "operationId": "",
+        "requestBody": {
+          "description": "This Signup API will return the success message if the request return OK",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          },
+          "404": {
+            "description": "Message of not found",
+            "content": {}
+          },
+          "400": {
+            "description": "Message of Bad request",
+            "content": {}
+          },
+          "500": {
+            "description": "Message of Server Error  request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/forgot-password": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "forgot-password API which helps the users to get reset password email link",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "required": true,
+            "description": "email used in registration to the system",
+            "schema": {
+              "example": {
+                "email": "imagerwanda@domain.com"
+              }
+            }
+          }
+        ],
+        "operationId": "",
+        "requestBody": {
+          "description": "This forgot-password API will send the user email link to reset their password",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          },
+          "404": {
+            "description": "Message of not found",
+            "content": {}
+          },
+          "400": {
+            "description": "Message of Bad request",
+            "content": {}
+          },
+          "500": {
+            "description": "Message of Server Error  request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/reset-password/{token}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "reset-password API which helps the users to change their password after receiving the reset password email link",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "this is the token that was sent to the email "
+          },
+          {
+            "name": "new password",
+            "in": "body",
+            "required": true,
+            "description": "is the new password to override the existing one",
+            "schema": {
+              "example": {
+                "password": "newpassword",
+                "cpassword": "newpassword"
+              }
+            }
+          }
+        ],
+        "operationId": "",
+        "requestBody": {
+          "description": "This reset-password API will return the success message if the password changed successifully",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          },
+          "404": {
+            "description": "Message of not found",
+            "content": {}
+          },
+          "400": {
+            "description": "Message of Bad request",
+            "content": {}
+          },
+          "500": {
+            "description": "Message of Server Error  request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/logout/{token}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "logout is an API that helps the user to logout from the system",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "this is the token received at login"
+          }
+        ],
+        "operationId": "",
+        "requestBody": {
+          "description": "this a logout api which will remove the user from the system and clean the authentication token",
+          "content": {
+            "application/json": {
+              "schema": {}
+            },
+            "application/xml": {
+              "schema": {}
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Message of successful request",
+            "content": {}
+          },
+          "404": {
+            "description": "Message of not found",
+            "content": {}
+          },
+          "400": {
+            "description": "Message of Bad request",
+            "content": {}
+          },
+          "500": {
+            "description": "Message of Server Error  request",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    }
+  }
+}

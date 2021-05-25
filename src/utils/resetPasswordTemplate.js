@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const resetPasswordTemplate = (emailData) => {
-  const link = `${process.env.HOST}/users/reset-password/${emailData.authToken}`;
+  const link = `${process.env.FRONTEND_URL}/change-password?token=${emailData.authToken}`;
   const template = `<!DOCTYPE html>
     <html lang="en">
     <head>

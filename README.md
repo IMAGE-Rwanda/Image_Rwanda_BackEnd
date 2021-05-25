@@ -4,12 +4,16 @@ This is the backend repo for Image Rwanda project/platform
 
 
 ## Mission of Image Rwanda Project
-- 
+``` 
+We Are Rwanda's leading Imagery Stock.
+We Give You Access To Thousandas of Rwanda's Exclusive Collections of Royalty- Free Images, Videos And Illustrations.
+
+```
 
 # Technologies
 - Node js
 - Express server
-- Mocha and Chai  
+- Mocha and Chai(Testing)
 - Firebase datatabse
 
 # Project setup
@@ -20,4 +24,4 @@ This is the backend repo for Image Rwanda project/platform
 - - Run ```npm run test``` to make tests of codebase
 
 # API Documentantion
-
+[Swagger Documentation]()
