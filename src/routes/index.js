@@ -1,7 +1,9 @@
-import express from 'express'
+import express from 'express';
+import userRouter from './user';
+const router = express.Router();
+router.use('/users',userRouter);
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../swagger.json";
-const router = express.Router();
 
 router
     .get("/", (req, res) => {
