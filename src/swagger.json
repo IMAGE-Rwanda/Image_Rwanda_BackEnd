@@ -45,6 +45,75 @@
             },
             "x-codegen-request-body-name": "body"
         }
+    },
+    "/api/v1/users/subscribe":{
+        "post": {
+          "tags": ["Users"],
+          "summary": "subscribe to get latest blog",
+          "description": "subscribe to get latest blogs and articles",
+          "operationId": "subscribe",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "Imanzi"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "image@rwanda.rw"
+                  }
+                }
+              }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": {
+            "201": {
+              "description": "User already subscribed"
+            },
+            "200": {
+              "description": "Subscription is successfull"
+            },
+            "500": {
+              "description": "server error"
+            }
+          }
+      }
+    },
+    "/api/v1/images/search/{imageCategory}":{
+        "get": {
+          "tags": ["Images"],
+          "summary": "search all images",
+          "description": "search all images by using its categories",
+          "operationId": "images",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "imageCategory",
+              "required": true,
+              "description": "get all images with in stated category"
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "images received successfully"
+            },
+            "401": {
+              "description": "invalid category"
+            },
+            "500": {
+              "description": "server error"
+            }
+          }
+      }
     }
+
+
   }
 }
