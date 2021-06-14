@@ -85,7 +85,7 @@
           }
       }
     },
-    "/api/v1/images/search/{imageCategory}":{
+    "/api/v1/images/search/{image}":{
         "get": {
           "tags": ["Images"],
           "summary": "search all images",
@@ -94,7 +94,7 @@
           "parameters": [
             {
               "in": "path",
-              "name": "imageCategory",
+              "name": "image",
               "required": true,
               "description": "get all images with in stated category"
             }

@@ -8,26 +8,44 @@ class imagesController {
       const { image } = req.params;
       const { currentPage = 1, pageSize = 10 } = req.query;
       const { limit, offset } = calculateLimitAndOffset(currentPage, pageSize);
-      const images = await Images.where("categories", "==", image).get();
-      if (!Object.keys(images).length) {
+      let images = await Images.where("categories", "==", image).get();
+
+      if (images.empty) {
         return res.status(401).json({
           status: 401,
           message: "we don't have image you are looking",
         });
       }
+      images.forEach((docs) => {
+        images = docs.data();
+      });
       
       const count = Object.keys(images).length;
-      const paginatedData = Object.entries(images).slice(offset, offset + limit);
+      // const paginatedData = Object.entries(images).slice(
+      //   offset,
+      //   offset + limit
+      // );
+     let paginatedData = await Images
+       .where("categories", ">=", image)
+       .orderBy("categories")
+       .startAt(offset)
+       .limit(limit)
+       .get();
+      paginatedData.forEach((docs)=>{
+        paginatedData = docs.data();
+      })
       const paginationInfo = paginate(currentPage, count, paginatedData);
 
-    console.log(paginatedData)
+      
       return res.status(200).json({
-        message:"image found successfully",
+        message: "image found successfully",
         success: true,
-        data: { 
-          result: paginatedData, 
-          meta: paginationInfo
-         },
+        data: {
+          paginatedData,
+        },
+        pagination: {
+          paginationInfo,
+        },
       });
     } catch (error) {
       console.log(error);

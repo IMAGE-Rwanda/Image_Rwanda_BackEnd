@@ -13,8 +13,8 @@ try{
     measurementId: "G-1GKHEY20J0",
   };
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 }  catch (error) {
+    // console.log(error);
     console.log({error: "Failed To Connect To Database!"})
 
 }
